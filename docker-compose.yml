@@ -2,26 +2,26 @@ version: "2"
 
 services:
   demo:
-   image: magnustiberius/demo:0.0.2-SNAPSHOT 
+   image: magnustiberius/demo:0.0.2-SNAPSHOT
    ports:
-     - "8080:8080"
+     - "8090:8080"
    networks:
-     mtrnet:
-       ipv4_address: 172.18.0.3
+     demonet:
+       ipv4_address: 172.19.0.3
 
   dyndb:
     image: dwmkerr/dynamodb
     ports:
-      - "3001:8000"
+      - "4001:8000"
     networks:
-      mtrnet:
-        ipv4_address: 172.18.0.2
+      demonet:
+        ipv4_address: 172.19.0.2
 
 
 networks:
-  mtrnet:
+  demonet:
    driver: bridge
    ipam:
      config:
-       - subnet: 172.18.0.0/16
-         gateway: 172.18.0.1
+       - subnet: 172.19.0.0/16
+         gateway: 172.19.0.1
