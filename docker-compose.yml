@@ -2,7 +2,7 @@ version: "2"
 
 services:
   demo:
-   image: magnustiberius/demo:0.0.1-SNAPSHOT 
+   image: magnustiberius/demo:0.0.2-SNAPSHOT 
    ports:
      - "8080:8080"
    networks:
