@@ -1,0 +1,32 @@
+version: "2"
+
+
+services:
+  demo:
+   container_name: demo
+   image: blobstorage
+   ports:
+     - "8081:8080"
+   networks:
+     mtrnet:
+       ipv4_address: 172.18.0.3
+
+
+
+
+  dyndb:
+    image: dwmkerr/dynamodb
+    ports:
+      - "8000:8000"
+    networks:
+      mtrnet:
+        ipv4_address: 172.18.0.2
+
+
+networks:
+  mtrnet:
+   driver: bridge
+   ipam:
+     config:
+       - subnet: 172.18.0.0/16
+         gateway: 172.18.0.1
